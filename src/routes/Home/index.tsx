@@ -113,25 +113,22 @@ export default function Home() {
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  // Builder shows SubstackWidget; explorer shows PersonaTagCard; crafter
-  // shows nothing (no bottom widget while the section is being built out).
+  // Builder shows SubstackWidget; crafter and explorer show PersonaTagCard.
   const widget = (
     <AnimatePresence mode="wait" initial={false}>
-      {persona !== "crafter" && (
-        <motion.div
-          key={persona === "builder" ? "substack" : `tag-${persona}`}
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 8 }}
-          transition={{ duration: 0.32, ease: [0.4, 0, 0.2, 1] }}
-        >
-          {persona === "builder" ? (
-            <SubstackWidget />
-          ) : (
-            <PersonaTagCard persona={persona} />
-          )}
-        </motion.div>
-      )}
+      <motion.div
+        key={persona === "builder" ? "substack" : `tag-${persona}`}
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: 8 }}
+        transition={{ duration: 0.32, ease: [0.4, 0, 0.2, 1] }}
+      >
+        {persona === "builder" ? (
+          <SubstackWidget />
+        ) : (
+          <PersonaTagCard persona={persona} />
+        )}
+      </motion.div>
     </AnimatePresence>
   );
 

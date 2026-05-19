@@ -176,6 +176,9 @@ export type PersonaTag = {
   quote: string;
   /** Mono attribution line. */
   attribution: string;
+  /** Optional pet-project spotlight — name and URL shown in the card header. */
+  projectName?: string;
+  projectUrl?: string;
 };
 
 /**
@@ -185,12 +188,14 @@ export type PersonaTag = {
 export const PERSONA_TAGS: Record<Exclude<Persona, "builder">, PersonaTag> = {
   crafter: {
     stats: [
-      { label: "method", value: "systems · sticky notes" },
-      { label: "loves", value: "type, grids, restraint" },
-      { label: "tools", value: "Figma · Linear · paper" },
+      { label: "type", value: "photo curation app" },
+      { label: "role", value: "design · product" },
+      { label: "goal", value: "completion rate" },
     ],
-    quote: "Designing is about choosing the right problems to solve",
-    attribution: "// craft.tag",
+    quote: "A curation experience that feels like a fun activity, not a chore.",
+    attribution: "// project.craft",
+    projectName: "Unkept",
+    projectUrl: "https://unkept.netlify.app",
   },
   explorer: {
     stats: [

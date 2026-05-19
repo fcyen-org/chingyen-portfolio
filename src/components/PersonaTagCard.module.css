@@ -65,6 +65,17 @@
   color: var(--ink-soft);
 }
 
+.projectLink {
+  font-size: 11px;
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+}
+
+.projectLink:hover {
+  text-decoration: underline;
+}
+
 /* Mobile (≤1100px): full-width card. */
 @media (max-width: 1100px) {
   .root {
