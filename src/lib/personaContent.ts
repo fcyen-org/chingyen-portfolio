@@ -188,11 +188,11 @@ export type PersonaTag = {
 export const PERSONA_TAGS: Record<Exclude<Persona, "builder">, PersonaTag> = {
   crafter: {
     stats: [
-      { label: "type", value: "photo curation app" },
+      { label: "type", value: "personal pet project" },
       { label: "role", value: "design · product" },
       { label: "url", value: "unkept.netlify.app" },
     ],
-    quote: "A curation experience that feels like a fun activity, not a chore.",
+    quote: "A photo curation app that extends the fun of post-trip.",
     attribution: "// project.craft",
     projectName: "Unkept",
     projectUrl: "https://unkept.netlify.app",
