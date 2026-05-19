@@ -65,14 +65,13 @@
   color: var(--ink-soft);
 }
 
-.projectLink {
+.statLink {
   font-size: 11px;
   color: var(--accent);
   text-decoration: none;
-  letter-spacing: 0.04em;
 }
 
-.projectLink:hover {
+.statLink:hover {
   text-decoration: underline;
 }
 

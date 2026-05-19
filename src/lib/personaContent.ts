@@ -190,7 +190,7 @@ export const PERSONA_TAGS: Record<Exclude<Persona, "builder">, PersonaTag> = {
     stats: [
       { label: "type", value: "photo curation app" },
       { label: "role", value: "design · product" },
-      { label: "goal", value: "completion rate" },
+      { label: "url", value: "unkept.netlify.app" },
     ],
     quote: "A curation experience that feels like a fun activity, not a chore.",
     attribution: "// project.craft",
