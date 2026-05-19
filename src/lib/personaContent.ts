@@ -192,7 +192,7 @@ export const PERSONA_TAGS: Record<Exclude<Persona, "builder">, PersonaTag> = {
       { label: "role", value: "design · product" },
       { label: "url", value: "unkept.netlify.app" },
     ],
-    quote: "A photo curation app that extends the fun of post-trip.",
+    quote: "Curating your trip photos shouldn't feel like a chore.",
     attribution: "// project.craft",
     projectName: "Unkept",
     projectUrl: "https://unkept.netlify.app",
