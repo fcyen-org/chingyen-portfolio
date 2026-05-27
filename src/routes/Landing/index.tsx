@@ -404,5 +404,5 @@ function MobileLanding() {
 const SOCIALS = [
   { label: "LinkedIn", sym: "in", href: "https://www.linkedin.com/in/foo-ching-yen/" },
   { label: "GitHub", sym: "⌥", href: "https://github.com/fcyen/" },
-  { label: "Email", sym: "@", href: "mailto:chingyenfoo@gmail.com" },
+  { label: "Email", sym: "@", href: "mailto:foo.chingyen@gmail.com" },
 ];
