@@ -84,16 +84,67 @@ export type PostEntry = {
   slug?: string;
 };
 
-/** Crafter right-card post list. */
-export const CRAFTER_POSTS: readonly PostEntry[] = [
+/**
+ * Crafter "side quests" — the pet projects currently in progress. Listed in
+ * the bottom-centre SideQuestCard; selecting one drives the RightCard, which
+ * shows the project description, a screenshot placeholder, then any related
+ * blog posts. Copy/links are placeholders the user will swap in.
+ */
+export type SideQuest = {
+  /** Stable id used as the selection key + RightCard eyebrow. */
+  id: string;
+  /** Project name — shown in the list and as the panel heading. */
+  name: string;
+  /** Short status chip, e.g. "building", "exploring". */
+  status: string;
+  /** One-line teaser under the name in the list. */
+  tagline: string;
+  /** Longer description shown in the RightCard when selected. */
+  description: string;
+  /** Optional screenshot URL; a placeholder box is shown when absent. */
+  screenshot?: string;
+  /** Related blog posts shown below the screenshot. */
+  posts?: readonly PostEntry[];
+};
+
+export const SIDE_QUESTS: readonly SideQuest[] = [
   {
-    num: "01",
-    title: "From Conversation to Working Prototype",
-    meta: "case study · 9 min",
-    tag: "product",
-    slug: "kasih-link-phase-1",
+    id: "kasih-link",
+    name: "KasihLink",
+    status: "building",
+    tagline: "Matching volunteers with grassroots charities.",
+    description:
+      "A platform that helps grassroots charities find the volunteers they need, and helps volunteers find causes worth their time. It went from a single conversation to a working prototype — the case study below walks through how it came together.",
+    posts: [
+      {
+        num: "01",
+        title: "From Conversation to Working Prototype",
+        meta: "case study · 9 min",
+        tag: "product",
+        slug: "kasih-link-phase-1",
+      },
+    ],
+  },
+  {
+    id: "side-quest-2",
+    name: "Side Quest Two",
+    status: "exploring",
+    tagline: "A placeholder pet project — swap me in later.",
+    description:
+      "Placeholder description for a pet project currently in progress. Replace this copy with the real project details once it's ready to share.",
+  },
+  {
+    id: "side-quest-3",
+    name: "Side Quest Three",
+    status: "tinkering",
+    tagline: "Another placeholder pet project.",
+    description:
+      "Placeholder description for another work-in-progress experiment. Replace with the real story when the time is right.",
   },
 ];
+
+/** Empty-state prompt shown in the crafter RightCard when no quest is picked. */
+export const CRAFTER_EMPTY_PROMPT = "Choose a side quest to learn more.";
 
 export type ExplorerPhoto = {
   caption: string;
@@ -179,19 +230,11 @@ export type PersonaTag = {
 };
 
 /**
- * Bottom-left widget for crafter/explorer (where the Substack feed isn't shown).
- * Lightweight stat block + quote that mirrors the design tone.
+ * Bottom-left widget for explorer (where neither the Substack feed nor the
+ * crafter side-quest list is shown). Lightweight stat block + quote that
+ * mirrors the design tone.
  */
-export const PERSONA_TAGS: Record<Exclude<Persona, "builder">, PersonaTag> = {
-  crafter: {
-    stats: [
-      { label: "method", value: "systems · sticky notes" },
-      { label: "loves", value: "type, grids, restraint" },
-      { label: "tools", value: "Figma · Linear · paper" },
-    ],
-    quote: "Designing is about choosing the right problems to solve",
-    attribution: "// craft.tag",
-  },
+export const PERSONA_TAGS: Record<"explorer", PersonaTag> = {
   explorer: {
     stats: [
       { label: "kit", value: "Sony A7C + 24/70mm" },

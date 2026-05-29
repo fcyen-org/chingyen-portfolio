@@ -4,9 +4,10 @@ import { ArrowR } from "@/components/icons";
 import type { Persona } from "@/lib/persona";
 import {
   BUILDER_TIMELINE,
-  CRAFTER_POSTS,
+  CRAFTER_EMPTY_PROMPT,
   EXPLORER_PHOTOS,
   RIGHT_CARD_META,
+  SIDE_QUESTS,
 } from "@/lib/personaContent";
 import instagramPosts from "@/data/instagram-posts.json";
 import styles from "./RightCard.module.css";
@@ -19,11 +20,19 @@ import styles from "./RightCard.module.css";
  *
  * Body subcomponents:
  *   - BuilderBody:  timeline with diamond markers
- *   - CrafterBody:  list of posts (links inert until Stage 7)
+ *   - CrafterBody:  selected side-quest detail (description + screenshot +
+ *                   related posts), or a prompt when nothing is selected
  *   - ExplorerBody: curated Instagram post embeds via embed.js
  */
 
-export default function RightCard({ persona }: { persona: Persona }) {
+export default function RightCard({
+  persona,
+  selectedQuest = null,
+}: {
+  persona: Persona;
+  /** Crafter only: id of the selected side quest, or null for the prompt. */
+  selectedQuest?: string | null;
+}) {
   const meta = RIGHT_CARD_META[persona];
 
   return (
@@ -51,7 +60,9 @@ export default function RightCard({ persona }: { persona: Persona }) {
             transition={{ duration: 0.32, ease: [0.4, 0, 0.2, 1] }}
           >
             {persona === "builder" && <BuilderBody />}
-            {persona === "crafter" && <CrafterBody />}
+            {persona === "crafter" && (
+              <CrafterBody selectedQuest={selectedQuest} />
+            )}
             {persona === "explorer" && <ExplorerBody />}
           </motion.div>
         </AnimatePresence>
@@ -91,38 +102,92 @@ function BuilderBody() {
   );
 }
 
-function CrafterBody() {
+function CrafterBody({ selectedQuest }: { selectedQuest: string | null }) {
+  const quest = SIDE_QUESTS.find((q) => q.id === selectedQuest) ?? null;
+
+  // No quest picked yet — show the prompt nudging the user to the list.
+  if (!quest) {
+    return (
+      <div className={styles.questEmpty}>
+        <div className={`mono uppr ${styles.bodyEyebrow}`}>
+          &lt;side-quests len={SIDE_QUESTS.length}&gt;
+        </div>
+        <p className={styles.questPrompt}>{CRAFTER_EMPTY_PROMPT}</p>
+      </div>
+    );
+  }
+
+  const posts = quest.posts ?? [];
+
   return (
-    <div>
-      <div className={`mono uppr ${styles.bodyEyebrow}`}>
-        &lt;posts len={CRAFTER_POSTS.length}&gt;
-      </div>
-      <div className={styles.postList}>
-        {CRAFTER_POSTS.map((p) => {
-          const inner = (
-            <>
-              <div className={styles.postHead}>
-                <span className={`mono ${styles.postNum}`}>{p.num}</span>
-                <span className={`mono uppr ${styles.postTag}`}>[ {p.tag} ]</span>
-              </div>
-              <div className={styles.postTitle}>{p.title}</div>
-              <div className={`mono ${styles.postMeta}`}>
-                {p.meta} <ArrowR />
-              </div>
-            </>
-          );
-          return p.slug ? (
-            <Link key={p.num} to={`/work/${p.slug}`} className={styles.postRow}>
-              {inner}
-            </Link>
-          ) : (
-            <a key={p.num} href="#" className={styles.postRow}>
-              {inner}
-            </a>
-          );
-        })}
-      </div>
-    </div>
+    <AnimatePresence mode="wait" initial={false}>
+      <motion.div
+        key={quest.id}
+        initial={{ opacity: 0, y: 6 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: 6 }}
+        transition={{ duration: 0.24, ease: [0.4, 0, 0.2, 1] }}
+      >
+        <div className={`mono uppr ${styles.bodyEyebrow}`}>
+          &lt;side-quest // {quest.id}&gt;
+        </div>
+        <h3 className={styles.questTitle}>{quest.name}</h3>
+        <p className={styles.questDesc}>{quest.description}</p>
+
+        {quest.screenshot ? (
+          <img
+            src={quest.screenshot}
+            alt={`${quest.name} screenshot`}
+            className={styles.questShot}
+            loading="lazy"
+            draggable={false}
+          />
+        ) : (
+          <div className={styles.questShotPlaceholder}>
+            <span className="mono uppr">screenshot</span>
+          </div>
+        )}
+
+        {posts.length > 0 && (
+          <div className={styles.questPosts}>
+            <div className={`mono uppr ${styles.bodyEyebrow}`}>
+              &lt;posts len={posts.length}&gt;
+            </div>
+            <div className={styles.postList}>
+              {posts.map((p) => {
+                const inner = (
+                  <>
+                    <div className={styles.postHead}>
+                      <span className={`mono ${styles.postNum}`}>{p.num}</span>
+                      <span className={`mono uppr ${styles.postTag}`}>
+                        [ {p.tag} ]
+                      </span>
+                    </div>
+                    <div className={styles.postTitle}>{p.title}</div>
+                    <div className={`mono ${styles.postMeta}`}>
+                      {p.meta} <ArrowR />
+                    </div>
+                  </>
+                );
+                return p.slug ? (
+                  <Link
+                    key={p.num}
+                    to={`/work/${p.slug}`}
+                    className={styles.postRow}
+                  >
+                    {inner}
+                  </Link>
+                ) : (
+                  <a key={p.num} href="#" className={styles.postRow}>
+                    {inner}
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+        )}
+      </motion.div>
+    </AnimatePresence>
   );
 }
 

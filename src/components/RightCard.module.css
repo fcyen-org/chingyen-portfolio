@@ -182,7 +182,73 @@
   color: var(--ink-soft);
 }
 
-/* ---- Crafter body: posts list ---- */
+/* ---- Crafter body: side-quest detail ---- */
+
+.questEmpty {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.questPrompt {
+  margin: 0;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 22px;
+  line-height: 1.25;
+  color: var(--ink-soft);
+}
+
+.questTitle {
+  margin: 4px 0 0;
+  font-family: var(--serif);
+  font-size: 26px;
+  line-height: 1.1;
+  font-weight: 400;
+}
+
+.questDesc {
+  margin: 10px 0 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+.questShot {
+  width: 100%;
+  margin-top: 16px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  display: block;
+}
+
+.questShotPlaceholder {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  margin-top: 16px;
+  border: 1px dashed var(--line);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 8px,
+      var(--line) 8px,
+      var(--line) 9px
+    );
+  color: var(--ink-soft);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+}
+
+.questPosts {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
 
 .postList {
   display: block;
@@ -333,5 +399,13 @@
 
   .postTitle {
     font-size: 17px;
+  }
+
+  .questTitle {
+    font-size: 22px;
+  }
+
+  .questPrompt {
+    font-size: 19px;
   }
 }
