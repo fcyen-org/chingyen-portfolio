@@ -1,32 +1,24 @@
 import { Fragment } from "react";
 import { PERSONA_TAGS } from "@/lib/personaContent";
-import type { Persona } from "@/lib/persona";
 import styles from "./PersonaTagCard.module.css";
 
 /*
- * PersonaTagCard — bottom-left widget for the crafter and explorer personas
- * (Builder gets SubstackWidget instead). A short stat block plus an italic
- * pull quote, stylistically a sibling of the prototype's "tag" notes.
+ * PersonaTagCard — bottom-centre widget for the explorer persona (Builder gets
+ * SubstackWidget; Crafter gets SideQuestCard). A short stat block plus an
+ * italic pull quote, stylistically a sibling of the prototype's "tag" notes.
  */
 
-type Props = {
-  persona: Exclude<Persona, "builder">;
-};
-
-export default function PersonaTagCard({ persona }: Props) {
-  const tag = PERSONA_TAGS[persona];
-  const sectionLabel = persona === "crafter" ? "craft" : "roam";
+export default function PersonaTagCard() {
+  const tag = PERSONA_TAGS.explorer;
 
   return (
     <div className={styles.root}>
       <div className={styles.head}>
         <span className={`mono uppr ${styles.label}`}>
           // tag &nbsp;·&nbsp;{" "}
-          <span className={styles.labelAccent}>{sectionLabel}</span>
+          <span className={styles.labelAccent}>roam</span>
         </span>
-        <span className={`mono ${styles.label}`}>
-          {`<${persona}>`}
-        </span>
+        <span className={`mono ${styles.label}`}>&lt;explorer&gt;</span>
       </div>
 
       <div className={styles.stats}>
