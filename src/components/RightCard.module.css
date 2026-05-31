@@ -285,11 +285,6 @@
   color: var(--ink-soft);
 }
 
-.postTag {
-  font-size: 9px;
-  color: var(--ink-soft);
-}
-
 .postTitle {
   font-family: var(--serif);
   font-size: 19px;

@@ -79,7 +79,6 @@ export type PostEntry = {
   num: string;
   title: string;
   meta: string;
-  tag: string;
   /** Slug for /work/<slug> when present; otherwise the link is inert. */
   slug?: string;
 };
@@ -117,7 +116,6 @@ export const SIDE_QUESTS: readonly SideQuest[] = [
         num: "01",
         title: "From Conversation to Working Prototype",
         meta: "case study · 9 min",
-        tag: "product",
         slug: "kasih-link-phase-1",
       },
     ],

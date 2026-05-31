@@ -159,9 +159,6 @@ function CrafterBody({ selectedQuest }: { selectedQuest: string | null }) {
                   <>
                     <div className={styles.postHead}>
                       <span className={`mono ${styles.postNum}`}>{p.num}</span>
-                      <span className={`mono uppr ${styles.postTag}`}>
-                        [ {p.tag} ]
-                      </span>
                     </div>
                     <div className={styles.postTitle}>{p.title}</div>
                     <div className={`mono ${styles.postMeta}`}>
