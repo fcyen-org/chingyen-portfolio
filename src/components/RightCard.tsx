@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowR } from "@/components/icons";
@@ -34,6 +35,36 @@ export default function RightCard({
   selectedQuest?: string | null;
 }) {
   const meta = RIGHT_CARD_META[persona];
+  const bodyRef = useRef<HTMLDivElement>(null);
+  const [isOverflowing, setIsOverflowing] = useState(false);
+
+  useEffect(() => {
+    const el = bodyRef.current;
+    if (!el) return;
+
+    const check = () => {
+      setIsOverflowing(el.scrollHeight > el.clientHeight + 1);
+    };
+
+    const ro = new ResizeObserver(check);
+    ro.observe(el);
+
+    const observeChildren = () => {
+      for (const child of Array.from(el.children)) {
+        ro.observe(child);
+      }
+      check();
+    };
+    observeChildren();
+
+    const mo = new MutationObserver(observeChildren);
+    mo.observe(el, { childList: true });
+
+    return () => {
+      ro.disconnect();
+      mo.disconnect();
+    };
+  }, []);
 
   return (
     <div className={styles.root}>
@@ -49,7 +80,7 @@ export default function RightCard({
         </div>
       </div>
 
-      <div className={styles.body}>
+      <div ref={bodyRef} className={styles.body}>
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={persona}
@@ -70,7 +101,7 @@ export default function RightCard({
 
       <div className={styles.footer}>
         <span>&lt;{persona}.lvl&gt;</span>
-        <span>scroll ↓</span>
+        {isOverflowing && <span>scroll ↓</span>}
       </div>
     </div>
   );
