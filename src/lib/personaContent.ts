@@ -132,7 +132,7 @@ export const SIDE_QUESTS: readonly SideQuest[] = [
     status: "Photo curation app",
     description:
       "A privacy-first web app that turns a large, unorganised photo collection into a curated collection.",
-    cta: { label: "Visit Unkept", href: "https://unkept.netlify.app/" },
+    cta: { label: "Live demo", href: "https://unkept.netlify.app/" },
   },
 ];
 
