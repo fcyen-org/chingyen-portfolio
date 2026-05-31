@@ -97,8 +97,6 @@ export type SideQuest = {
   name: string;
   /** Short status chip, e.g. "building", "exploring". */
   status: string;
-  /** One-line teaser under the name in the list. */
-  tagline: string;
   /** Longer description shown in the RightCard when selected. */
   description: string;
   /** Optional screenshot URL; a placeholder box is shown when absent. */
@@ -112,7 +110,6 @@ export const SIDE_QUESTS: readonly SideQuest[] = [
     id: "kasih-link",
     name: "KasihLink",
     status: "building",
-    tagline: "Matching volunteers with grassroots charities.",
     description:
       "A platform that helps grassroots charities find the volunteers they need, and helps volunteers find causes worth their time. It went from a single conversation to a working prototype — the case study below walks through how it came together.",
     posts: [
@@ -129,7 +126,6 @@ export const SIDE_QUESTS: readonly SideQuest[] = [
     id: "side-quest-2",
     name: "Side Quest Two",
     status: "exploring",
-    tagline: "A placeholder pet project — swap me in later.",
     description:
       "Placeholder description for a pet project currently in progress. Replace this copy with the real project details once it's ready to share.",
   },
@@ -137,7 +133,6 @@ export const SIDE_QUESTS: readonly SideQuest[] = [
     id: "side-quest-3",
     name: "Side Quest Three",
     status: "tinkering",
-    tagline: "Another placeholder pet project.",
     description:
       "Placeholder description for another work-in-progress experiment. Replace with the real story when the time is right.",
   },
