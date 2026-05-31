@@ -192,9 +192,9 @@
 
 .questPrompt {
   margin: 0;
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-style: italic;
-  font-size: 22px;
+  font-size: 14px;
   line-height: 1.25;
   color: var(--ink-soft);
 }
