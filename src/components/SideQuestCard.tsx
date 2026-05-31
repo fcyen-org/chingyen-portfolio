@@ -1,12 +1,13 @@
+import { PixelLightning } from "@/components/icons";
 import { SIDE_QUESTS } from "@/lib/personaContent";
 import styles from "./SideQuestCard.module.css";
 
 /*
- * SideQuestCard — bottom-centre widget for the crafter persona (Builder gets
- * SubstackWidget; Explorer gets PersonaTagCard). Lists the pet projects
- * currently in progress as a row of clickable "side quests". Selecting one
- * lifts the id up to Home, which drives the RightCard. Clicking the active
- * quest again clears the selection.
+ * SideQuestCard — bottom-centre widget for the crafter persona. Mirrors the
+ * SubstackWidget layout (mono label + lightning glyph, italic heading, blurb,
+ * then a list) but on the Crafter light skin, and the rows are selectable:
+ * clicking a side quest lifts its id up to Home, which drives the RightCard.
+ * Clicking the active row again clears the selection.
  */
 
 type Props = {
@@ -18,36 +19,40 @@ export default function SideQuestCard({ selectedQuest, onSelect }: Props) {
   return (
     <div className={styles.root}>
       <div className={styles.head}>
-        <span className={`mono uppr ${styles.label}`}>
-          // side quests &nbsp;·&nbsp;{" "}
-          <span className={styles.labelAccent}>in progress</span>
-        </span>
-        <span className={`mono ${styles.label}`}>&lt;crafter&gt;</span>
+        <span className={`mono uppr ${styles.label}`}>// in progress</span>
+        <PixelLightning scale={2} />
       </div>
 
-      <ul className={styles.list}>
+      <h3 className={styles.heading}>Side Quests</h3>
+      <p className={styles.blurb}>
+        Little experiments and pet projects I&rsquo;m tinkering with on the
+        side — pick one to dig in.
+      </p>
+
+      <div className={styles.posts}>
         {SIDE_QUESTS.map((quest) => {
           const active = quest.id === selectedQuest;
           return (
-            <li key={quest.id}>
-              <button
-                type="button"
-                className={`${styles.row} ${active ? styles.active : ""}`}
-                onClick={() => onSelect(active ? null : quest.id)}
-                aria-pressed={active}
-              >
-                <span className={styles.rowHead}>
-                  <span className={styles.name}>{quest.name}</span>
-                  <span className={`mono uppr ${styles.status}`}>
-                    [ {quest.status} ]
-                  </span>
-                </span>
-                <span className={styles.tagline}>{quest.tagline}</span>
-              </button>
-            </li>
+            <button
+              key={quest.id}
+              type="button"
+              className={`${styles.post} ${active ? styles.active : ""}`}
+              onClick={() => onSelect(active ? null : quest.id)}
+              aria-pressed={active}
+            >
+              <span className={styles.postTitle}>{quest.name}</span>
+              <span className={`mono uppr ${styles.postStatus}`}>
+                {quest.status}
+              </span>
+            </button>
           );
         })}
-      </ul>
+      </div>
+
+      <div className={styles.footer}>
+        <span>{SIDE_QUESTS.length} side quests</span>
+        <span>// pick one ↑</span>
+      </div>
     </div>
   );
 }
