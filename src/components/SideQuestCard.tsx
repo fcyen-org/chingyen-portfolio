@@ -25,8 +25,7 @@ export default function SideQuestCard({ selectedQuest, onSelect }: Props) {
 
       <h3 className={styles.heading}>Side Quests</h3>
       <p className={styles.blurb}>
-        Little experiments and pet projects I&rsquo;m tinkering with on the
-        side — pick one to dig in.
+        Pet projects I&rsquo;m currently working on — pick one to dig in ▶️
       </p>
 
       <div className={styles.posts}>

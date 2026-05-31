@@ -108,10 +108,11 @@ export const SIDE_QUESTS: readonly SideQuest[] = [
   {
     id: "kasih-link",
     name: "KasihLink",
-    status: "building",
+    status: "Social platform",
     description:
-      "A platform that helps grassroots charities find the volunteers they need, and helps volunteers find causes worth their time. It went from a single conversation to a working prototype — the case study below walks through how it came together.",
-    posts: [
+      "A digital platform connecting Malaysian non-profit elderly homes and orphanages with donors. The project is in the user research phase.",
+      screenshot: "/work/kasih-link/poster.png",
+      posts: [
       {
         num: "01",
         title: "From Conversation to Working Prototype",
@@ -121,18 +122,11 @@ export const SIDE_QUESTS: readonly SideQuest[] = [
     ],
   },
   {
-    id: "side-quest-2",
-    name: "Side Quest Two",
-    status: "exploring",
+    id: "unkept",
+    name: "Unkept",
+    status: "Photo curation app",
     description:
-      "Placeholder description for a pet project currently in progress. Replace this copy with the real project details once it's ready to share.",
-  },
-  {
-    id: "side-quest-3",
-    name: "Side Quest Three",
-    status: "tinkering",
-    description:
-      "Placeholder description for another work-in-progress experiment. Replace with the real story when the time is right.",
+      "A privacy-first web app that turns a large, unorganised photo collection into a curated collection.",
   },
 ];
 
