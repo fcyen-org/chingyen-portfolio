@@ -1,23 +1,25 @@
 /*
- * SideQuestCard — bottom-centre widget for the crafter persona. Light panel
- * with a header and a list of clickable "side quest" rows. Sits where the
- * Builder shows the SubstackWidget and the Explorer shows the PersonaTagCard.
+ * SideQuestCard — bottom-centre card on Crafter. Mirrors the SubstackWidget
+ * layout (mono label + lightning glyph, italic heading, blurb, then a list),
+ * but on the Crafter light palette rather than the Builder dark card. Unlike
+ * SubstackWidget the rows are selectable buttons that drive the RightCard, so
+ * they carry an active state.
  */
 
 .root {
   width: 320px;
-  padding: 16px 18px;
   background: var(--panel-solid);
-  border: 1px solid var(--line);
-  border-radius: 4px;
+  color: var(--ink);
+  padding: 16px 18px;
   box-shadow: var(--shadow);
+  border: 1px solid var(--line);
   position: relative;
 }
 
 .head {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   margin-bottom: 10px;
 }
 
@@ -26,27 +28,41 @@
   color: var(--ink-soft);
 }
 
-.labelAccent {
-  color: var(--accent);
-}
-
-.list {
-  list-style: none;
+.heading {
+  font-family: var(--serif);
+  font-size: 22px;
+  line-height: 1.1;
+  font-style: italic;
   margin: 0;
-  padding: 0;
-  border-top: 1px solid var(--line);
+  letter-spacing: 0.04em;
 }
 
-.row {
+.blurb {
+  margin: 8px 0 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+.posts {
+  margin-top: 14px;
+  border-top: 1px solid var(--line);
   display: flex;
   flex-direction: column;
-  gap: 3px;
+}
+
+.post {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
   width: 100%;
-  padding: 10px 8px 10px 0;
+  padding: 10px 0;
   border: none;
   border-bottom: 1px solid var(--line);
   border-left: 2px solid transparent;
   background: none;
+  font: inherit;
   text-align: left;
   cursor: pointer;
   color: var(--ink);
@@ -54,50 +70,51 @@
     background 200ms ease;
 }
 
-.row:hover,
-.row:focus-visible {
+.post:last-child {
+  border-bottom: 0;
+}
+
+.post:hover,
+.post:focus-visible {
   padding-left: 8px;
   border-left-color: var(--ink-soft);
 }
 
-.row:focus-visible {
+.post:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
 
-.row.active {
+.post.active {
   padding-left: 8px;
   border-left-color: var(--accent);
-  background: var(--bg-tint, transparent);
+  background: oklch(0.62 0.16 42 / 0.08);
 }
 
-.rowHead {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 8px;
+.postTitle {
+  font-size: 13px;
+  line-height: 1.35;
+  flex: 1 1 auto;
 }
 
-.name {
-  font-family: var(--serif);
-  font-size: 18px;
-  line-height: 1.1;
-}
-
-.status {
+.postStatus {
   font-size: 9px;
+  letter-spacing: 0.08em;
   color: var(--ink-soft);
-  white-space: nowrap;
+  flex: 0 0 auto;
 }
 
-.row.active .status {
+.post.active .postStatus {
   color: var(--accent);
 }
 
-.tagline {
+.footer {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-family: var(--mono);
-  font-size: 11px;
-  line-height: 1.35;
+  font-size: 9px;
   color: var(--ink-soft);
 }
 
