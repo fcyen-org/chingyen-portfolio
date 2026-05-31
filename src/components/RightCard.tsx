@@ -142,6 +142,15 @@ function CrafterBody({ selectedQuest }: { selectedQuest: string | null }) {
             loading="lazy"
             draggable={false}
           />
+        ) : quest.cta ? (
+          <a
+            href={quest.cta.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.questCta}
+          >
+            {quest.cta.label} <ArrowR />
+          </a>
         ) : (
           <div className={styles.questShotPlaceholder}>
             <span className="mono uppr">screenshot</span>
