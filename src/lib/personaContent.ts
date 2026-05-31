@@ -100,6 +100,11 @@ export type SideQuest = {
   description: string;
   /** Optional screenshot URL; a placeholder box is shown when absent. */
   screenshot?: string;
+  /**
+   * Optional call-to-action link shown in place of the screenshot when there
+   * isn't one yet (e.g. a live demo / site link).
+   */
+  cta?: { label: string; href: string };
   /** Related blog posts shown below the screenshot. */
   posts?: readonly PostEntry[];
 };
@@ -127,6 +132,7 @@ export const SIDE_QUESTS: readonly SideQuest[] = [
     status: "Photo curation app",
     description:
       "A privacy-first web app that turns a large, unorganised photo collection into a curated collection.",
+    cta: { label: "Visit Unkept", href: "https://unkept.netlify.app/" },
   },
 ];
 

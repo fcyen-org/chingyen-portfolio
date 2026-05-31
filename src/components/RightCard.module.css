@@ -244,6 +244,34 @@
   letter-spacing: 0.1em;
 }
 
+.questCta {
+  margin-top: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: var(--ink);
+  color: var(--bg-tint);
+  border: 1px solid var(--ink);
+  border-radius: 4px;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: opacity 200ms ease, transform 200ms ease;
+}
+
+.questCta:hover,
+.questCta:focus-visible {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+.questCta:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
 .questPosts {
   margin-top: 22px;
   padding-top: 18px;
