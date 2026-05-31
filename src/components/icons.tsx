@@ -113,6 +113,23 @@ export const PixelLightning = ({ scale = 3 }: WeaponIconProps) => (
   />
 );
 
+export const PixelSword = ({ scale = 3 }: WeaponIconProps) => (
+  <PixelGrid
+    scale={scale}
+    color="var(--ink)"
+    rows={[
+      "      ##",
+      "     ## ",
+      "    ##  ",
+      "   ##   ",
+      "  ##    ",
+      "####    ",
+      " ##     ",
+      " ##     ",
+    ]}
+  />
+);
+
 export const LockIcon = ({ size = 12 }: GlyphProps) => (
   <svg width={size} height={size} viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.4" aria-hidden="true">
     <rect x="2" y="6" width="8" height="5" />

@@ -1,13 +1,13 @@
-import { PixelLightning } from "@/components/icons";
+import { PixelSword } from "@/components/icons";
 import { SIDE_QUESTS } from "@/lib/personaContent";
 import styles from "./SideQuestCard.module.css";
 
 /*
  * SideQuestCard — bottom-centre widget for the crafter persona. Mirrors the
- * SubstackWidget layout (mono label + lightning glyph, italic heading, blurb,
- * then a list) but on the Crafter light skin, and the rows are selectable:
- * clicking a side quest lifts its id up to Home, which drives the RightCard.
- * Clicking the active row again clears the selection.
+ * SubstackWidget layout (mono label + pixel-sword glyph, italic heading,
+ * blurb, then a list) but on the Crafter light skin, and the rows are
+ * selectable: clicking a side quest lifts its id up to Home, which drives the
+ * RightCard. Clicking the active row again clears the selection.
  */
 
 type Props = {
@@ -20,7 +20,7 @@ export default function SideQuestCard({ selectedQuest, onSelect }: Props) {
     <div className={styles.root}>
       <div className={styles.head}>
         <span className={`mono uppr ${styles.label}`}>// in progress</span>
-        <PixelLightning scale={2} />
+        <PixelSword scale={2} />
       </div>
 
       <h3 className={styles.heading}>Side Quests</h3>
