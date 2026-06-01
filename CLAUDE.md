@@ -93,6 +93,7 @@ The original HTML/CSS/JS prototype lives in `design-reference/project/`:
 - **Waitlist storage** is **Netlify Forms** (`explorer-waitlist`). The schema lives as a hidden static `<form data-netlify="true">` in `index.html` so Netlify's build-time scan registers it; `LockedModal` POSTs the same field set (`email`, `message`, `bot-field`, `form-name`) to `/`. Submissions appear in the Netlify dashboard — no third-party form service.
 - **All asset URLs and external links are placeholders** — the user will swap them in. Don't invent real URLs.
 - **Column order differs from the prototype** (intentional). The original design put the intro card on the left, character stage in the centre, and work experience on the right. The live layout reverses columns 1 and 2: character stage left, intro/substack centre, work experience right. Column proportions are `1fr 1fr 2fr` (roughly ¼ / ¼ / ½) so the right panel dominates — the goal is to direct visitor attention toward the work experience content. Do not revert to the prototype's column order without asking.
+- **Middle column has a 360px minimum width** (`minmax(360px, 1fr)`) so HeroCard's natural width never overflows into the column-gap or right column. When the viewport is tight, the right column (`minmax(0, 2fr)`) is the one that shrinks — preserving the 22px gap between middle content and the RightCard. If you change HeroCard's width, update this minimum to match.
 
 ## Conventions
 
