@@ -34,7 +34,15 @@
   padding: 26px 36px 28px;
 
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 2fr);
+  /*
+   * Middle column is pinned to HeroCard's natural width (360px) so its
+   * content never overflows into the column-gap or right column. The
+   * right column uses `minmax(0, 2fr)` so it absorbs the squeeze and
+   * narrows when viewport space is tight — keeping the column-gap
+   * (and therefore the visible gap between middle and right content)
+   * intact at all viewport widths ≥ min-width.
+   */
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 1fr) minmax(0, 2fr);
   grid-template-rows: auto minmax(0, 1fr);
   grid-template-areas:
     "stage hero   right"
