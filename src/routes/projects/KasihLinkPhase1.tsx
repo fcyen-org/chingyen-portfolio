@@ -67,7 +67,7 @@ export default function KasihLinkPhase1() {
             The founder had spent time speaking with home operators and had seen
             the inefficiencies up close. What he needed was a way to bring that
             vision to life — something tangible enough to put in front of the
-            organizations themselves and test the idea. 
+            organizations themselves and test the idea.
           </p>
         </section>
 
@@ -340,28 +340,6 @@ export default function KasihLinkPhase1() {
                 one: it keeps content quality high during the validation phase
                 and ensures the founder remains close to the feedback loop as
                 the first users onboard.
-              </p>
-            </div>
-          </details>
-
-          <details>
-            <summary>Why Facebook — Not a Custom Donor Portal</summary>
-            <div className={styles.detailsBody}>
-              <p>
-                Building a full donor-facing portal was out of scope for Phase 1
-                — and intentionally so. The open question at this stage was not
-                "Can we build a donor portal?" but "Do the organizations have a
-                need that's worth solving?" Answering the second question first
-                felt like the more useful starting point.
-              </p>
-              <p>
-                Facebook as a distribution channel for approved donation
-                requests is a pragmatic interim solution: it has an established
-                user base in Malaysia, supports post formats that translate well
-                to donation request listings, and requires zero additional
-                engineering. It also allows the team to observe donor engagement
-                organically before investing in purpose-built discovery
-                features.
               </p>
             </div>
           </details>
