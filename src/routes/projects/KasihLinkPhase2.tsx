@@ -77,7 +77,9 @@ export default function KasihLinkPhase2() {
             category, and needed-by date.
           </p>
 
-          <figure className={styles.screenshotItem}>
+          <figure
+            className={`${styles.screenshotItem} ${styles.screenshotNarrow}`}
+          >
             <img
               src="/work/kasih-link/create-request.jpg"
               alt="Create Request screen with Quick Fill section"
