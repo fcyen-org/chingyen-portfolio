@@ -278,6 +278,11 @@
   overflow: hidden;
 }
 
+.screenshotNarrow {
+  width: 66.666%;
+  margin: 36px auto;
+}
+
 .screenshotItem img {
   width: 100%;
   display: block;
@@ -459,5 +464,9 @@
   .insightGrid,
   .feedbackPair {
     grid-template-columns: 1fr;
+  }
+
+  .screenshotNarrow {
+    width: 100%;
   }
 }
