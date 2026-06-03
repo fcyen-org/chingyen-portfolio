@@ -81,7 +81,7 @@ export default function KasihLinkPhase2() {
             className={`${styles.screenshotItem} ${styles.screenshotNarrow}`}
           >
             <img
-              src="/work/kasih-link/create-request.jpg"
+              src="/work/kasih-link/quick-fill-request.png"
               alt="Create Request screen with Quick Fill section"
             />
             <figcaption className={styles.screenshotCaption}>
@@ -143,13 +143,18 @@ export default function KasihLinkPhase2() {
             information, and description.
           </p>
 
-          <div className={styles.decisionBlock}>
-            <p className={styles.decisionTitle}>Screenshot placeholder</p>
-            <p className={styles.decisionBody}>
-              Organization self-registration screen — home details, contact
-              information, and short description.
-            </p>
-          </div>
+          <figure
+            className={`${styles.screenshotItem} ${styles.screenshotNarrow}`}
+          >
+            <img
+              src="/work/kasih-link/org-registration.png"
+              alt="Organization self-registration screen"
+            />
+            <figcaption className={styles.screenshotCaption}>
+              Organization self-registration — home details, contact
+              information, and short description
+            </figcaption>
+          </figure>
 
           <p>
             For now, this is a practical flow that reduces the amount of manual
