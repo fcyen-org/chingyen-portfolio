@@ -101,6 +101,7 @@ The original HTML/CSS/JS prototype lives in `design-reference/project/`:
 - No inline `style={{...}}` for anything that has more than ~3 properties — promote to CSS Modules. The prototype is full of inline styles because it's a single-file prototype; we don't have that constraint.
 - Pixel art uses `image-rendering: pixelated` and ships at native resolution (do not upscale source PNGs).
 - Color values in CSS use `oklch()` directly — keep parity with the prototype's tokens. PostCSS auto-generates sRGB fallbacks at build time so pre-2023 browsers still get readable colors. Avoid embedding raw `oklch()` strings in JS/TSX (PostCSS can't reach inline-style strings); either reference a CSS variable defined in `tokens.css`, or use an sRGB hex equivalent.
+- When drafting, revising, or giving feedback on blog posts and case studies, read `../WRITING-STYLE-BLOG-POST.md` first and follow its voice guidance: grounded, reflective, explanatory, and beginner-honest rather than polished or expert-sounding.
 
 ## Common commands
 
