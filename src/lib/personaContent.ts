@@ -116,13 +116,19 @@ export const SIDE_QUESTS: readonly SideQuest[] = [
     status: "Social platform",
     description:
       "A digital platform connecting Malaysian non-profit elderly homes and orphanages with donors. The project is in the user research phase.",
-      screenshot: "/work/kasih-link/poster.png",
-      posts: [
+    screenshot: "/work/kasih-link/poster.png",
+    posts: [
       {
         num: "01",
         title: "From Conversation to Working Prototype",
         meta: "case study · 9 min",
         slug: "kasih-link-phase-1",
+      },
+      {
+        num: "02",
+        title: "Reducing Work, Increasing Visibility",
+        meta: "case study · draft",
+        slug: "kasih-link-phase-2",
       },
     ],
   },

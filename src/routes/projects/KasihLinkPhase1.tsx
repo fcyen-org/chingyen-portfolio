@@ -24,7 +24,7 @@ export default function KasihLinkPhase1() {
           <Link to="/?p=crafter">Ching Yen</Link> &nbsp;·&nbsp; Product Design
         </span>
         <span className={styles.seriesTag}>
-          Series: KasihLink &nbsp; Part 1 of ?
+          Series: KasihLink &nbsp; Part 1 of 2
         </span>
       </header>
 
