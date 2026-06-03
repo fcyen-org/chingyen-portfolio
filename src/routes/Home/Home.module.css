@@ -8,7 +8,8 @@
  *
  * Mobile (≤1100px): the same children stack into a single scrolling
  * column — Hero, then CharacterStage + WeaponSelector side-by-side, then
- * the "// scroll for details" hint, then RightCard, then bottom widget.
+ * the "// scroll for details" hint, then the persona widget
+ * (SubstackWidget / SideQuestCard / PersonaTagCard), then RightCard.
  */
 
 /*
@@ -174,19 +175,19 @@
     }
   }
 
-  .right {
+  .widget {
     order: 4;
+    width: 100%;
+    align-self: stretch;
+    justify-self: stretch;
+  }
+
+  .right {
+    order: 5;
     width: 100%;
     height: auto;
     min-height: 70vh;
     display: block;
-  }
-
-  .widget {
-    order: 5;
-    width: 100%;
-    align-self: stretch;
-    justify-self: stretch;
   }
 }
 

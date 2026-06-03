@@ -29,8 +29,8 @@ const DETAILS_ANCHOR_ID = "home-details";
  *
  * On mobile (≤1100px) the layout collapses to a single scrolling column with
  * CharacterStage + WeaponSelector side-by-side, a "// scroll for details"
- * hint, the right card below, then the bottom widget. Body scroll is allowed
- * so the user can reach everything below the fold.
+ * hint, the persona widget, then the right card below. Body scroll is
+ * allowed so the user can reach everything below the fold.
  */
 export default function Home() {
   const [searchParams, setSearchParams] = useSearchParams();
