@@ -36,7 +36,7 @@ export default function WeaponSelector({
 }: Props) {
   return (
     <div className={styles.root}>
-      <span className={`mono uppr ${styles.label}`}>// choose your weapon</span>
+      <span className={`mono uppr ${styles.label}`}>choose your weapon</span>
 
       <div className={styles.tiles} role="group" aria-label="Choose persona">
         {PERSONAS.map((p, i) => (

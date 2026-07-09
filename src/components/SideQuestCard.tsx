@@ -19,7 +19,7 @@ export default function SideQuestCard({ selectedQuest, onSelect }: Props) {
   return (
     <div className={styles.root}>
       <div className={styles.head}>
-        <span className={`mono uppr ${styles.label}`}>// in progress</span>
+        <span className={`mono uppr ${styles.label}`}>in progress</span>
         <PixelSword scale={2} />
       </div>
 
@@ -50,7 +50,7 @@ export default function SideQuestCard({ selectedQuest, onSelect }: Props) {
 
       <div className={styles.footer}>
         <span>{SIDE_QUESTS.length} side quests</span>
-        <span>// pick one ↑</span>
+        <span>pick one ↑</span>
       </div>
     </div>
   );

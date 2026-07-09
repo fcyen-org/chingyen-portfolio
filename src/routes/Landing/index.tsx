@@ -84,7 +84,7 @@ function DesktopLanding() {
         <div className={styles.left}>
           <span className={styles.statusDot} />
           <span>
-            chingyen.portfolio <span className={styles.divider}>///</span> v{__APP_VERSION__}
+            chingyen.portfolio <span className={styles.divider}>·</span> v{__APP_VERSION__}
           </span>
         </div>
         <div className={styles.based}>
@@ -94,7 +94,7 @@ function DesktopLanding() {
 
       <header className={styles.hero}>
         <div className={styles.heroEyebrow}>
-          // HELLO THERE
+          HELLO THERE
           <span className={styles.blink}>_</span>
         </div>
         <h1 className={styles.heroTitle}>
@@ -277,12 +277,12 @@ function MobileLanding() {
       <div className={styles.mTopBar}>
         <span className={styles.statusDot} />
         <span>
-          chingyen.portfolio <span className={styles.divider}>///</span> v{__APP_VERSION__}
+          chingyen.portfolio <span className={styles.divider}>·</span> v{__APP_VERSION__}
         </span>
       </div>
 
       <div className={styles.mHeroEyebrow}>
-        // HELLO THERE
+        HELLO THERE
         <span className={styles.blink}>_</span>
       </div>
       <h1 className={styles.mHeroTitle}>
@@ -298,7 +298,7 @@ function MobileLanding() {
         Tap a character to peek — tap again to enter.
       </p>
 
-      <div className={styles.mSectionLabel}>// CHOOSE A LENS</div>
+      <div className={styles.mSectionLabel}>CHOOSE A LENS</div>
 
       <div className={styles.mCards}>
         {LANDING_PERSONAS.map((p) => {
@@ -386,7 +386,7 @@ function MobileLanding() {
       />
 
       <div className={styles.mFooter}>
-        <div className={styles.mFooterLabel}>// ELSEWHERE</div>
+        <div className={styles.mFooterLabel}>ELSEWHERE</div>
         <div className={styles.mFooterGrid}>
           {SOCIALS.map((s) => (
             <a

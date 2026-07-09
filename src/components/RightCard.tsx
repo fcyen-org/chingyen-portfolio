@@ -129,7 +129,7 @@ function CrafterBody({ selectedQuest }: { selectedQuest: string | null }) {
         transition={{ duration: 0.24, ease: [0.4, 0, 0.2, 1] }}
       >
         <div className={`mono uppr ${styles.bodyEyebrow}`}>
-          &lt;side-quest // {quest.id}&gt;
+          &lt;side-quest id={quest.id}&gt;
         </div>
         <h3 className={styles.questTitle}>{quest.name}</h3>
         <p className={styles.questDesc}>{quest.description}</p>
@@ -203,7 +203,7 @@ function ExplorerBody() {
   return (
     <div>
       <div className={styles.igHead}>
-        <span className={`mono ${styles.bodyEyebrow}`}>// @{username}</span>
+        <span className={`mono ${styles.bodyEyebrow}`}>@{username}</span>
         <a
           href={`https://www.instagram.com/${username}/`}
           target="_blank"

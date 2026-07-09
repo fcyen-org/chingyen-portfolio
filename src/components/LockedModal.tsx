@@ -211,7 +211,7 @@ function FormState({
 }: FormStateProps) {
   return (
     <>
-      <div className={styles.eyebrow}>// LEVEL 03 · LOCKED</div>
+      <div className={styles.eyebrow}>LEVEL 03 · LOCKED</div>
       <h2 id={titleId} className={styles.title}>
         Level locked &mdash; <em>stay tuned!</em>
       </h2>
@@ -281,7 +281,7 @@ function SuccessState({
 }) {
   return (
     <div className={styles.followup}>
-      <div className={styles.eyebrow}>// SUBMITTED</div>
+      <div className={styles.eyebrow}>SUBMITTED</div>
       <h2 id={titleId} className={styles.title}>
         Cheers! <em>I&rsquo;ll be in touch.</em>
       </h2>
@@ -306,7 +306,7 @@ function ErrorState({
 }) {
   return (
     <div className={styles.followup}>
-      <div className={`${styles.eyebrow} ${styles.eyebrowError}`}>// ERROR</div>
+      <div className={`${styles.eyebrow} ${styles.eyebrowError}`}>ERROR</div>
       <h2 id={titleId} className={styles.title}>
         Couldn&rsquo;t save that.
       </h2>

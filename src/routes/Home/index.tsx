@@ -28,7 +28,7 @@ const DETAILS_ANCHOR_ID = "home-details";
  * chrome.
  *
  * On mobile (≤1100px) the layout collapses to a single scrolling column with
- * CharacterStage + WeaponSelector side-by-side, a "// scroll for details"
+ * CharacterStage + WeaponSelector side-by-side, a "scroll for details"
  * hint, the right card below, then the bottom widget. Body scroll is allowed
  * so the user can reach everything below the fold.
  */
@@ -189,7 +189,7 @@ export default function Home() {
           className={styles.scrollHint}
           onClick={onScrollHintClick}
         >
-          <span className="mono uppr">// scroll for details</span>
+          <span className="mono uppr">scroll for details</span>
           <span className={styles.scrollHintArrow} aria-hidden="true">
             ▼
           </span>

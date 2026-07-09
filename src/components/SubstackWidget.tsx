@@ -11,7 +11,7 @@ export default function SubstackWidget() {
   return (
     <div className={styles.root}>
       <div className={styles.head}>
-        <span className={`mono uppr ${styles.label}`}>// learnings</span>
+        <span className={`mono uppr ${styles.label}`}>learnings</span>
         <PixelLightning scale={2} />
       </div>
 
