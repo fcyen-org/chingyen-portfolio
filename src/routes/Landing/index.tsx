@@ -130,13 +130,14 @@ function DesktopLanding() {
             isActive={hov === i}
             anyHovered={hov !== null}
             onHover={() => setHov(i)}
+            onLeave={() => setHov(null)}
             onSelect={(el) => handleSelect(p, el)}
           />
         ))}
       </div>
 
       <div className={styles.bottomHint}>
-        <span>hover a character · click to enter</span>
+        <span>hover or tab to a character · click to enter</span>
         <span className={styles.bullet}>·</span>
         <span className={styles.kbdRow}>
           <kbd className={styles.kbd}>1</kbd>
@@ -160,6 +161,7 @@ type CardProps = {
   isActive: boolean;
   anyHovered: boolean;
   onHover: () => void;
+  onLeave: () => void;
   onSelect: (trigger: HTMLElement | null) => void;
 };
 
@@ -168,6 +170,7 @@ function CharacterCard({
   isActive,
   anyHovered,
   onHover,
+  onLeave,
   onSelect,
 }: CardProps) {
   const dimmed = anyHovered && !isActive;
@@ -181,6 +184,8 @@ function CharacterCard({
       }`}
       style={accentVar}
       onMouseEnter={onHover}
+      onFocus={onHover}
+      onBlur={onLeave}
       onClick={(e) => onSelect(e.currentTarget)}
       aria-label={`${persona.name} ${persona.italic} — ${persona.sectionLabel}`}
     >

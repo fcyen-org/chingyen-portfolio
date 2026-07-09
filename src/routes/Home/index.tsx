@@ -82,6 +82,15 @@ export default function Home() {
     };
   }, [persona]);
 
+  // Reflect the active persona in the tab title (matches the deep-linkable
+  // `?p=` URL); restore the static default when leaving the stage.
+  useEffect(() => {
+    document.title = `The ${persona.charAt(0).toUpperCase()}${persona.slice(1)} — Ching Yen`;
+    return () => {
+      document.title = "Ching Yen — Portfolio";
+    };
+  }, [persona]);
+
   // Clear the crafter side-quest selection whenever we leave crafter, so
   // returning to it always starts from the "choose a side quest" prompt.
   useEffect(() => {

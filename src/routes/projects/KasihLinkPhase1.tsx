@@ -21,7 +21,7 @@ export default function KasihLinkPhase1() {
     <article className={styles.page}>
       <header className={styles.header}>
         <span className={styles.bylineTag}>
-          <Link to="/?p=crafter">Ching Yen</Link> &nbsp;·&nbsp; Product Design
+          <Link to="/select?p=crafter">Ching Yen</Link> &nbsp;·&nbsp; Product Design
         </span>
         <span className={styles.seriesTag}>
           Series: KasihLink &nbsp; Part 1 of 2

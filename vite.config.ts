@@ -11,6 +11,13 @@ export default defineConfig({
   define: {
     __APP_VERSION__: JSON.stringify(version),
   },
+  build: {
+    // Never inline assets as base64 into the bundle. The default 4kB limit
+    // sweeps up ~125 small @fontsource woff2 subsets (Gugi's Korean ranges,
+    // Latin-ext, etc.) into the CSS, forcing every visitor to download all
+    // of them up front and defeating unicode-range lazy loading.
+    assetsInlineLimit: 0,
+  },
   plugins: [react()],
   resolve: {
     alias: {
