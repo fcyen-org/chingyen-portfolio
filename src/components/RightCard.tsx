@@ -22,7 +22,7 @@ import styles from "./RightCard.module.css";
  *   - BuilderBody:  timeline with diamond markers
  *   - CrafterBody:  selected side-quest detail (description + screenshot +
  *                   related posts), or a prompt when nothing is selected
- *   - ExplorerBody: curated Instagram post embeds via embed.js
+ *   - ExplorerBody: curated Instagram photo grid linking to the posts
  */
 
 export default function RightCard({
@@ -184,9 +184,9 @@ function CrafterBody({ selectedQuest }: { selectedQuest: string | null }) {
                     {inner}
                   </Link>
                 ) : (
-                  <a key={p.num} href="#" className={styles.postRow}>
+                  <span key={p.num} className={styles.postRow}>
                     {inner}
-                  </a>
+                  </span>
                 );
               })}
             </div>

@@ -115,7 +115,7 @@ export const SIDE_QUESTS: readonly SideQuest[] = [
     name: "KasihLink",
     status: "Social platform",
     description:
-      "A digital platform connecting Malaysian non-profit elderly homes and orphanages with donors. The project is in the user research phase.",
+      "A digital platform connecting Malaysian non-profit elderly homes and orphanages with donors. Now iterating on a working prototype shaped by conversations with the homes.",
     screenshot: "/work/kasih-link/poster.png",
     posts: [
       {
@@ -127,7 +127,7 @@ export const SIDE_QUESTS: readonly SideQuest[] = [
       {
         num: "02",
         title: "Reducing Work, Increasing Visibility",
-        meta: "case study · draft",
+        meta: "case study · 5 min",
         slug: "kasih-link-phase-2",
       },
     ],
@@ -202,22 +202,6 @@ export const RIGHT_CARD_META: Record<Persona, RightCardMeta> = {
     focus: { label: "landscape / streets", suffix: "A7C + 24-70mm" },
   },
 };
- 
-export type SubstackPostStub = {
-  title: string;
-  /** Human-friendly relative date for the mock; replaced by real RSS in Stage 6. */
-  date: string;
-};
-
-/**
- * Mocked Substack posts for Stage 5. Stage 6 swaps these out for the real
- * RSS feed at build time (`scripts/fetch-substack.mjs` → `src/data/substack.json`).
- */
-export const MOCK_SUBSTACK_POSTS: readonly SubstackPostStub[] = [
-  // { title: "Why your eval suite lies to you", date: "4d ago" },
-  // { title: "Notes on agent harnesses, week 3", date: "2w ago" },
-  { title: "Building Products in the Age of AI", date: "recent" },
-];
 
 export type PersonaTag = {
   /** Stat block — three short rows. */
