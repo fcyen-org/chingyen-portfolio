@@ -7,7 +7,9 @@
  */
 
 .page {
-  --case-cream: #f5f0e8;
+  /* Matches the Crafter ambient skin's paper tone (AmbientBackground .crafter
+     gradient centre) so case studies read as part of the Crafter world. */
+  --case-cream: oklch(0.96 0.03 88);
   --case-warm-white: #fdfaf4;
   --case-ink: #1c1a17;
   --case-muted: #6b6560;
