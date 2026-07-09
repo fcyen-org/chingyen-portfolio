@@ -29,7 +29,7 @@ export default function HeroCard({ persona }: { persona: Persona }) {
 
   return (
     <div className={styles.root}>
-      <div className={`mono uppr ${styles.eyebrow}`}>// hello there ---</div>
+      <div className={`mono uppr ${styles.eyebrow}`}>hello there ---</div>
 
       <h1 className={styles.title}>
         Hi, I&apos;m <em>Ching&nbsp;Yen</em>.
@@ -70,7 +70,7 @@ export default function HeroCard({ persona }: { persona: Persona }) {
           <span className={`mono ${styles.version}`}>
             <b>chingyen</b>
             <span className={styles.versionDim}>.portfolio</span>{" "}
-            <span className={styles.versionDim}>///</span>{" "}
+            <span className={styles.versionDim}>·</span>{" "}
             <span className={styles.versionDim}>v{__APP_VERSION__}</span>
           </span>
           <span className={`ticker ${styles.based}`}>

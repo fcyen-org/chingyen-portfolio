@@ -174,7 +174,7 @@ export const EXPLORER_PHOTOS: readonly ExplorerPhoto[] = [
 export type RightCardMeta = {
   /** Tab sticker label, e.g. "BUILD/01". */
   sticker: string;
-  /** Mono eyebrow above the heading, e.g. "section // work". */
+  /** Mono eyebrow above the heading, e.g. "section: work". */
   section: string;
   /** Persona heading rendered as `The <em>{label}</em>`. */
   heading: string;
@@ -185,19 +185,19 @@ export type RightCardMeta = {
 export const RIGHT_CARD_META: Record<Persona, RightCardMeta> = {
   builder: {
     sticker: "BUILD/01",
-    section: "section // work",
+    section: "section: work",
     heading: "Builder",
     focus: { label: "Fullstack engineering", suffix: "AI-powered prototypes, model integration, production observability" },
   },
   crafter: {
     sticker: "CRAFT/02",
-    section: "section // design",
+    section: "section: design",
     heading: "Crafter",
     focus: { label: "UX & Product", suffix: "design thinking" },
   },
   explorer: {
     sticker: "ROAM/03",
-    section: "section // photography",
+    section: "section: photography",
     heading: "Explorer",
     focus: { label: "landscape / streets", suffix: "A7C + 24-70mm" },
   },
@@ -225,6 +225,6 @@ export const PERSONA_TAGS: Record<"explorer", PersonaTag> = {
       { label: "edit", value: "Lightroom" },
     ],
     quote: "In the end we arrive where we started, and know the place for the first time.",
-    attribution: "// roam.tag",
+    attribution: "roam.tag",
   },
 };
