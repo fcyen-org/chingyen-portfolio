@@ -70,7 +70,7 @@ export default function HeroCard({ persona }: { persona: Persona }) {
           <span className={`mono ${styles.version}`}>
             <b>chingyen</b>
             <span className={styles.versionDim}>.portfolio</span>{" "}
-            <span className={styles.versionDim}>·</span>{" "}
+            <span className={styles.versionDim}>///</span>{" "}
             <span className={styles.versionDim}>v{__APP_VERSION__}</span>
           </span>
           <span className={`ticker ${styles.based}`}>
