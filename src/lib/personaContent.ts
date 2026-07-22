@@ -140,6 +140,14 @@ export const SIDE_QUESTS: readonly SideQuest[] = [
       "A privacy-first web app that turns a large, unorganised photo collection into a curated collection.",
     cta: { label: "Live demo", href: "https://unkept.netlify.app/" },
   },
+  {
+    id: "procrastea",
+    name: "Procrastea",
+    status: "UX Case Study",
+    description:
+      "A UX design practice with my design partner, working deep through each stage of the process and exploring how AI can be an effective partner. Our takeaway: the first drafts still belong in your own hands — crafting them manually and stepping through the user flow is what makes a design thoughtful.",
+    cta: { label: "View case study", href: "https://fcyen.github.io/Procrastea/" },
+  },
 ];
 
 /** Empty-state prompt shown in the crafter RightCard when no quest is picked. */
