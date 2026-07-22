@@ -94,7 +94,7 @@ function DesktopLanding() {
 
       <header className={styles.hero}>
         <div className={styles.heroEyebrow}>
-          // HELLO THERE
+          HELLO THERE
           <span className={styles.blink}>_</span>
         </div>
         <h1 className={styles.heroTitle}>
@@ -130,13 +130,14 @@ function DesktopLanding() {
             isActive={hov === i}
             anyHovered={hov !== null}
             onHover={() => setHov(i)}
+            onLeave={() => setHov(null)}
             onSelect={(el) => handleSelect(p, el)}
           />
         ))}
       </div>
 
       <div className={styles.bottomHint}>
-        <span>hover a character · click to enter</span>
+        <span>hover or tab to a character · click to enter</span>
         <span className={styles.bullet}>·</span>
         <span className={styles.kbdRow}>
           <kbd className={styles.kbd}>1</kbd>
@@ -160,6 +161,7 @@ type CardProps = {
   isActive: boolean;
   anyHovered: boolean;
   onHover: () => void;
+  onLeave: () => void;
   onSelect: (trigger: HTMLElement | null) => void;
 };
 
@@ -168,6 +170,7 @@ function CharacterCard({
   isActive,
   anyHovered,
   onHover,
+  onLeave,
   onSelect,
 }: CardProps) {
   const dimmed = anyHovered && !isActive;
@@ -181,6 +184,8 @@ function CharacterCard({
       }`}
       style={accentVar}
       onMouseEnter={onHover}
+      onFocus={onHover}
+      onBlur={onLeave}
       onClick={(e) => onSelect(e.currentTarget)}
       aria-label={`${persona.name} ${persona.italic} — ${persona.sectionLabel}`}
     >
@@ -277,7 +282,7 @@ function MobileLanding() {
       </div>
 
       <div className={styles.mHeroEyebrow}>
-        // HELLO THERE
+        HELLO THERE
         <span className={styles.blink}>_</span>
       </div>
       <h1 className={styles.mHeroTitle}>
@@ -286,14 +291,14 @@ function MobileLanding() {
       <p className={styles.mHeroBlurb}>
         A software engineer who designs as much as she ships. I've spent the
         last few years at GoodNotes and Zendesk building thoughtful interfaces
-        and automated solutions. When I'm not in front of a screen, you'll find
+        and AI solutions. When I'm not in front of a screen, you'll find
         me outdoors with my camera.
       </p>
       <p className={styles.mHeroHint}>
         Tap a character to peek — tap again to enter.
       </p>
 
-      <div className={styles.mSectionLabel}>// CHOOSE A LENS</div>
+      <div className={styles.mSectionLabel}>CHOOSE A LENS</div>
 
       <div className={styles.mCards}>
         {LANDING_PERSONAS.map((p) => {
@@ -381,7 +386,7 @@ function MobileLanding() {
       />
 
       <div className={styles.mFooter}>
-        <div className={styles.mFooterLabel}>// ELSEWHERE</div>
+        <div className={styles.mFooterLabel}>ELSEWHERE</div>
         <div className={styles.mFooterGrid}>
           {SOCIALS.map((s) => (
             <a
@@ -404,5 +409,5 @@ function MobileLanding() {
 const SOCIALS = [
   { label: "LinkedIn", sym: "in", href: "https://www.linkedin.com/in/foo-ching-yen/" },
   { label: "GitHub", sym: "⌥", href: "https://github.com/fcyen/" },
-  { label: "Email", sym: "@", href: "mailto:chingyenfoo@gmail.com" },
+  { label: "Email", sym: "@", href: "mailto:foo.chingyen@gmail.com" },
 ];

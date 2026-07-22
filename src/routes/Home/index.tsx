@@ -8,6 +8,7 @@ import HeroCard from "@/components/HeroCard";
 import LockedModal from "@/components/LockedModal";
 import PersonaTagCard from "@/components/PersonaTagCard";
 import RightCard from "@/components/RightCard";
+import SideQuestCard from "@/components/SideQuestCard";
 import SubstackWidget from "@/components/SubstackWidget";
 import WeaponSelector from "@/components/WeaponSelector";
 import {
@@ -27,7 +28,7 @@ const DETAILS_ANCHOR_ID = "home-details";
  * chrome.
  *
  * On mobile (≤1100px) the layout collapses to a single scrolling column with
- * CharacterStage + WeaponSelector side-by-side, a "// scroll for details"
+ * CharacterStage + WeaponSelector side-by-side, a "scroll for details"
  * hint, the right card below, then the bottom widget. Body scroll is allowed
  * so the user can reach everything below the fold.
  */
@@ -36,6 +37,9 @@ export default function Home() {
   const persona: Persona = parsePersonaParam(searchParams.get("p"));
   const [lockedOpen, setLockedOpen] = useState(false);
   const lockedTriggerRef = useRef<HTMLElement | null>(null);
+  // Crafter "side quest" selection — drives both the SideQuestCard (bottom)
+  // and the RightCard. Null until a quest is picked; reset when leaving crafter.
+  const [selectedQuest, setSelectedQuest] = useState<string | null>(null);
 
   // Set persona via the URL — keeps the page shareable. `replace: true` so
   // persona switches don't pollute browser history. We always write the
@@ -78,6 +82,21 @@ export default function Home() {
     };
   }, [persona]);
 
+  // Reflect the active persona in the tab title (matches the deep-linkable
+  // `?p=` URL); restore the static default when leaving the stage.
+  useEffect(() => {
+    document.title = `The ${persona.charAt(0).toUpperCase()}${persona.slice(1)} — Ching Yen`;
+    return () => {
+      document.title = "Ching Yen — Portfolio";
+    };
+  }, [persona]);
+
+  // Clear the crafter side-quest selection whenever we leave crafter, so
+  // returning to it always starts from the "choose a side quest" prompt.
+  useEffect(() => {
+    if (persona !== "crafter") setSelectedQuest(null);
+  }, [persona]);
+
   // Keyboard nav — 1/2/3 jumps, ←/→ steps, both skip locked personas.
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -113,21 +132,25 @@ export default function Home() {
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  // Builder shows SubstackWidget; crafter and explorer show PersonaTagCard.
+  // Builder shows SubstackWidget; crafter shows the SideQuestCard (pet
+  // projects); explorer shows the PersonaTagCard stat block.
   const widget = (
     <AnimatePresence mode="wait" initial={false}>
       <motion.div
-        key={persona === "builder" ? "substack" : `tag-${persona}`}
+        key={persona}
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 8 }}
         transition={{ duration: 0.32, ease: [0.4, 0, 0.2, 1] }}
       >
-        {persona === "builder" ? (
-          <SubstackWidget />
-        ) : (
-          <PersonaTagCard persona={persona} />
+        {persona === "builder" && <SubstackWidget />}
+        {persona === "crafter" && (
+          <SideQuestCard
+            selectedQuest={selectedQuest}
+            onSelect={setSelectedQuest}
+          />
         )}
+        {persona === "explorer" && <PersonaTagCard />}
       </motion.div>
     </AnimatePresence>
   );
@@ -166,14 +189,14 @@ export default function Home() {
           className={styles.scrollHint}
           onClick={onScrollHintClick}
         >
-          <span className="mono uppr">// scroll for details</span>
+          <span className="mono uppr">scroll for details</span>
           <span className={styles.scrollHintArrow} aria-hidden="true">
             ▼
           </span>
         </a>
 
         <section className={styles.right} id={DETAILS_ANCHOR_ID}>
-          <RightCard persona={persona} />
+          <RightCard persona={persona} selectedQuest={selectedQuest} />
         </section>
 
         <div className={styles.widget}>{widget}</div>

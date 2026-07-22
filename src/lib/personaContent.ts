@@ -79,21 +79,71 @@ export type PostEntry = {
   num: string;
   title: string;
   meta: string;
-  tag: string;
   /** Slug for /work/<slug> when present; otherwise the link is inert. */
   slug?: string;
 };
 
-/** Crafter right-card post list. */
-export const CRAFTER_POSTS: readonly PostEntry[] = [
+/**
+ * Crafter "side quests" — the pet projects currently in progress. Listed in
+ * the bottom-centre SideQuestCard; selecting one drives the RightCard, which
+ * shows the project description, a screenshot placeholder, then any related
+ * blog posts. Copy/links are placeholders the user will swap in.
+ */
+export type SideQuest = {
+  /** Stable id used as the selection key + RightCard eyebrow. */
+  id: string;
+  /** Project name — shown in the list and as the panel heading. */
+  name: string;
+  /** Short status chip, e.g. "building", "exploring". */
+  status: string;
+  /** Longer description shown in the RightCard when selected. */
+  description: string;
+  /** Optional screenshot URL; a placeholder box is shown when absent. */
+  screenshot?: string;
+  /**
+   * Optional call-to-action link shown in place of the screenshot when there
+   * isn't one yet (e.g. a live demo / site link).
+   */
+  cta?: { label: string; href: string };
+  /** Related blog posts shown below the screenshot. */
+  posts?: readonly PostEntry[];
+};
+
+export const SIDE_QUESTS: readonly SideQuest[] = [
   {
-    num: "01",
-    title: "From Conversation to Working Prototype",
-    meta: "case study · 9 min",
-    tag: "product",
-    slug: "kasih-link-phase-1",
+    id: "kasih-link",
+    name: "KasihLink",
+    status: "Social platform",
+    description:
+      "A digital platform connecting Malaysian non-profit elderly homes and orphanages with donors. Now iterating on a working prototype shaped by conversations with the homes.",
+    screenshot: "/work/kasih-link/poster.png",
+    posts: [
+      {
+        num: "01",
+        title: "From Conversation to Working Prototype",
+        meta: "case study · 9 min",
+        slug: "kasih-link-phase-1",
+      },
+      {
+        num: "02",
+        title: "Reducing Work, Increasing Visibility",
+        meta: "case study · 5 min",
+        slug: "kasih-link-phase-2",
+      },
+    ],
+  },
+  {
+    id: "unkept",
+    name: "Unkept",
+    status: "Photo curation app",
+    description:
+      "A privacy-first web app that turns a large, unorganised photo collection into a curated collection.",
+    cta: { label: "Live demo", href: "https://unkept.netlify.app/" },
   },
 ];
+
+/** Empty-state prompt shown in the crafter RightCard when no quest is picked. */
+export const CRAFTER_EMPTY_PROMPT = "Choose a side quest to learn more.";
 
 export type ExplorerPhoto = {
   caption: string;
@@ -124,7 +174,7 @@ export const EXPLORER_PHOTOS: readonly ExplorerPhoto[] = [
 export type RightCardMeta = {
   /** Tab sticker label, e.g. "BUILD/01". */
   sticker: string;
-  /** Mono eyebrow above the heading, e.g. "section // work". */
+  /** Mono eyebrow above the heading, e.g. "section || work". */
   section: string;
   /** Persona heading rendered as `The <em>{label}</em>`. */
   heading: string;
@@ -135,39 +185,23 @@ export type RightCardMeta = {
 export const RIGHT_CARD_META: Record<Persona, RightCardMeta> = {
   builder: {
     sticker: "BUILD/01",
-    section: "section // work",
+    section: "section || work",
     heading: "Builder",
     focus: { label: "Fullstack engineering", suffix: "AI-powered prototypes, model integration, production observability" },
   },
   crafter: {
     sticker: "CRAFT/02",
-    section: "section // design",
+    section: "section || design",
     heading: "Crafter",
     focus: { label: "UX & Product", suffix: "design thinking" },
   },
   explorer: {
     sticker: "ROAM/03",
-    section: "section // photography",
+    section: "section || photography",
     heading: "Explorer",
     focus: { label: "landscape / streets", suffix: "A7C + 24-70mm" },
   },
 };
- 
-export type SubstackPostStub = {
-  title: string;
-  /** Human-friendly relative date for the mock; replaced by real RSS in Stage 6. */
-  date: string;
-};
-
-/**
- * Mocked Substack posts for Stage 5. Stage 6 swaps these out for the real
- * RSS feed at build time (`scripts/fetch-substack.mjs` → `src/data/substack.json`).
- */
-export const MOCK_SUBSTACK_POSTS: readonly SubstackPostStub[] = [
-  // { title: "Why your eval suite lies to you", date: "4d ago" },
-  // { title: "Notes on agent harnesses, week 3", date: "2w ago" },
-  { title: "Building Products in the Age of AI", date: "recent" },
-];
 
 export type PersonaTag = {
   /** Stat block — three short rows. */
@@ -182,21 +216,11 @@ export type PersonaTag = {
 };
 
 /**
- * Bottom-left widget for crafter/explorer (where the Substack feed isn't shown).
- * Lightweight stat block + quote that mirrors the design tone.
+ * Bottom-left widget for explorer (where neither the Substack feed nor the
+ * crafter side-quest list is shown). Lightweight stat block + quote that
+ * mirrors the design tone.
  */
-export const PERSONA_TAGS: Record<Exclude<Persona, "builder">, PersonaTag> = {
-  crafter: {
-    stats: [
-      { label: "type", value: "personal pet project" },
-      { label: "role", value: "design · product" },
-      { label: "url", value: "unkept.netlify.app" },
-    ],
-    quote: "Curating your trip photos shouldn't feel like a chore.",
-    attribution: "// project.craft",
-    projectName: "Unkept",
-    projectUrl: "https://unkept.netlify.app",
-  },
+export const PERSONA_TAGS: Record<"explorer", PersonaTag> = {
   explorer: {
     stats: [
       { label: "kit", value: "Sony A7C + 24/70mm" },
@@ -204,6 +228,6 @@ export const PERSONA_TAGS: Record<Exclude<Persona, "builder">, PersonaTag> = {
       { label: "edit", value: "Lightroom" },
     ],
     quote: "In the end we arrive where we started, and know the place for the first time.",
-    attribution: "// roam.tag",
+    attribution: "roam.tag",
   },
 };

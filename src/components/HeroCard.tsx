@@ -21,7 +21,7 @@ type SocialDef = {
 const SOCIALS: readonly SocialDef[] = [
   { label: "linkedin", href: "https://www.linkedin.com/in/foo-ching-yen/", Icon: LinkedInIcon },
   { label: "github", href: "https://github.com/fcyen/", Icon: GithubIcon },
-  { label: "email", href: "mailto:chingyenfoo@gmail.com", Icon: MailIcon },
+  { label: "email", href: "mailto:foo.chingyen@gmail.com", Icon: MailIcon },
 ];
 
 export default function HeroCard({ persona }: { persona: Persona }) {
@@ -29,7 +29,7 @@ export default function HeroCard({ persona }: { persona: Persona }) {
 
   return (
     <div className={styles.root}>
-      <div className={`mono uppr ${styles.eyebrow}`}>// hello there ---</div>
+      <div className={`mono uppr ${styles.eyebrow}`}>hello there ---</div>
 
       <h1 className={styles.title}>
         Hi, I&apos;m <em>Ching&nbsp;Yen</em>.

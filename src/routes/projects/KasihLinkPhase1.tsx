@@ -21,10 +21,10 @@ export default function KasihLinkPhase1() {
     <article className={styles.page}>
       <header className={styles.header}>
         <span className={styles.bylineTag}>
-          <Link to="/?p=crafter">Ching Yen</Link> &nbsp;·&nbsp; Product Design
+          <Link to="/select?p=crafter">Ching Yen</Link> &nbsp;·&nbsp; Product Design
         </span>
         <span className={styles.seriesTag}>
-          Series: KasihLink &nbsp; Part 1 of ?
+          Series: KasihLink &nbsp; Part 1 of 2
         </span>
       </header>
 
@@ -36,22 +36,19 @@ export default function KasihLinkPhase1() {
           to <em>Working Prototype</em>
         </h1>
         <p className={styles.heroSub}>
-          How I helped a social-impact startup turn a founder's instinct into a
-          validated product concept — without writing a single line of code
-          prematurely.
+          KasihLink was one of my first chances to work on a product idea that
+          had to move beyond screens and into real conversations. The brief
+          sounded simple at first: build a prototype for a donation platform. But
+          as the project unfolded, I realised the more important question was not
+          "Can this be built?" It was "What do homes actually need, and would
+          this make their work easier?"
         </p>
-        <div className={styles.metaRow}>
-          <span><strong>Client</strong> &nbsp; KasihLink</span>
-          <span><strong>Sector</strong> &nbsp; Social Impact / Non-Profit Tech</span>
-          <span><strong>Market</strong> &nbsp; Malaysia</span>
-          <span><strong>Phase</strong> &nbsp; Discovery &amp; MVP Prototype</span>
-        </div>
       </section>
 
       <div className={styles.divider} />
 
       <div className={styles.bodyWrap}>
-        <section className={styles.section}>
+       <section className={styles.section}>
           <p className={styles.sectionLabel}>01 &nbsp; Background</p>
           <h2 className={styles.sectionHeading}>A Problem Worth Solving</h2>
           <p>
@@ -70,38 +67,23 @@ export default function KasihLinkPhase1() {
             The founder had spent time speaking with home operators and had seen
             the inefficiencies up close. What he needed was a way to bring that
             vision to life — something tangible enough to put in front of the
-            organizations themselves and test the idea. As a friend with a
-            background in software and product design, I came on board to help
-            him build it.
+            organizations themselves and test the idea.
           </p>
         </section>
 
         <section className={styles.section}>
           <p className={styles.sectionLabel}>02 &nbsp; Approach</p>
           <h2 className={styles.sectionHeading}>
-            Starting With the Founder, Not the Features
+            Understanding The Vision
           </h2>
           <p>
-            Before touching any design tool or writing any code, I sat down with
-            the founder to understand the origin of the idea and the long-term
-            vision.
-          </p>
-          <p>
-            A few things became clear from that conversation. The founding idea
-            had grown out of observations on the organization side — the homes
+            I sat down with the founder to understand the origin of the idea and the long-term
+            vision. A few things became clear: the idea had grown out of observations on the organization side — the homes
             weren't struggling to find goodwill, they were struggling to
-            communicate their needs clearly and consistently. That's where the
-            opportunity was most visible, and where research had already begun.
-            The donor side remained an open question for a later phase.
-          </p>
-          <p>
-            Second, the immediate goal wasn't a full product launch. It was a
-            working prototype — something real enough to place in front of home
-            administrators and generate honest reactions. The prototype would be
-            the research instrument.
+            communicate their needs clearly and consistently.
           </p>
 
-          <blockquote className={styles.pullQuote}>
+          {/* <blockquote className={styles.pullQuote}>
             <p>"The prototype wasn't the end goal. It was the research tool."</p>
             <cite>Design principle guiding Phase 1</cite>
           </blockquote>
@@ -110,21 +92,17 @@ export default function KasihLinkPhase1() {
             With that framing established, I could make every subsequent
             decision — from technology choices to which screens to build first —
             in service of that singular objective.
-          </p>
+          </p> */}
         </section>
 
         <section className={styles.section}>
           <p className={styles.sectionLabel}>03 &nbsp; Scoping the MVP</p>
           <h2 className={styles.sectionHeading}>
-            Reducing Scope Without Reducing Signal
+            Starting Small Enough To Learn Something
           </h2>
           <p>
-            One of the most valuable things a consultant can do in the early
-            stages of a project is help a founder distinguish between what they
-            need to build and what they simply want to build. Scope creep in
-            early-stage products rarely comes from bad intentions — it comes
-            from excitement. My job was to channel that excitement into a
-            focused, testable slice of the product.
+            To validate that such a digital platform could actually solve the problem, we needed to get something in front
+            of the home operators as quickly as possible. That meant making decisive choices about what to build — and what not to build — in the first phase of development.
           </p>
           <p>
             The MVP needed to answer one question:{" "}
@@ -132,7 +110,6 @@ export default function KasihLinkPhase1() {
               Will organization administrators actually use a digital tool to
               submit and track donation requests?
             </em>{" "}
-            Everything outside that question could wait.
           </p>
           <p>
             To that end, Phase 1 focused exclusively on two screens for
@@ -144,7 +121,7 @@ export default function KasihLinkPhase1() {
               <p className={styles.cardLabel}>Screen 1</p>
               <p>
                 <strong>Create Request</strong> — a form that lets an admin
-                specify the category, item name, brand, size, quantity needed,
+                specify the details of a request: category, item name, brand, size, quantity needed,
                 and urgency of a donation request.
               </p>
             </div>
@@ -210,9 +187,7 @@ export default function KasihLinkPhase1() {
           <p className={styles.sectionLabel}>04 &nbsp; Key Design Decisions</p>
           <h2 className={styles.sectionHeading}>Every Decision Earned Its Place</h2>
           <p>
-            With the scope defined, I made a series of deliberate product and
-            design decisions — each one traceable back to a specific constraint
-            or insight from the discovery phase.
+            At this point, I tried to make the design decisions practical rather than impressive. Since the goal was to learn from real home operators, every feature had to earn its place in the first prototype.
           </p>
 
           <h3 className={styles.subHeading}>Distribution Strategy</h3>
@@ -253,7 +228,7 @@ export default function KasihLinkPhase1() {
               to demonstrate to external stakeholders. But the genuine pain
               point lived with the home administrators, not the donors. Building
               the org-side first meant that the prototype could generate
-              authentic feedback from the people whose daily operations this
+              feedback from the people whose daily operations this
               product is actually meant to improve.
             </p>
           </div>
@@ -271,13 +246,13 @@ export default function KasihLinkPhase1() {
 
           <div className={styles.feedbackPair}>
             <div className={styles.feedbackCard}>
-              <p className={styles.orgLabel}>Home 1 &nbsp;·&nbsp; Petaling Jaya</p>
+              <p className={styles.orgLabel}>Home 1</p>
               <p className={styles.finding}>
                 "The problem isn't donations. It's loneliness and the weight of
                 running this alone."
               </p>
               <p>
-                The home owner operated largely solo, carrying the full
+                The home operator worked largely solo, carrying the full
                 emotional and operational burden of the home on his shoulders.
                 What he expressed a need for wasn't a better way to request rice
                 or cooking oil — it was human presence. Volunteers willing to
@@ -287,7 +262,7 @@ export default function KasihLinkPhase1() {
               </p>
             </div>
             <div className={styles.feedbackCard}>
-              <p className={styles.orgLabel}>Home 2 &nbsp;·&nbsp; Petaling Jaya</p>
+              <p className={styles.orgLabel}>Home 2</p>
               <p className={styles.finding}>
                 "I like the idea — but I'm worried it's going to create more
                 work for me."
@@ -297,7 +272,7 @@ export default function KasihLinkPhase1() {
                 supportive of the concept. Her concern, however, was telling:
                 any tool that adds to the admin burden of an already
                 overstretched team will fail on adoption regardless of how well
-                it is designed. The directive this surfaces is clear — the
+                it is designed. This gave us a clearer direction — the
                 product must automate administrative work, not create more of
                 it.
               </p>
@@ -305,9 +280,7 @@ export default function KasihLinkPhase1() {
           </div>
 
           <p>
-            These are exactly the kinds of findings that early-stage research is
-            designed to surface — and exactly why building a lightweight
-            prototype before investing in a full product was the right call.
+            This was the clearest reminder that a prototype is not just a way to prove an idea. It is also a way to find out where the idea is incomplete. Without something tangible to react to, these conversations might have stayed abstract.
           </p>
         </section>
 
@@ -329,9 +302,7 @@ export default function KasihLinkPhase1() {
               to, the administrative load on home operators.
             </p>
             <p>
-              That's a richer, more defensible product direction than what we
-              started with. And arriving at it before significant engineering
-              investment is the entire point of a well-run discovery phase.
+              That's a direction that felt more grounded than where we started.
             </p>
           </div>
         </section>
@@ -369,28 +340,6 @@ export default function KasihLinkPhase1() {
                 one: it keeps content quality high during the validation phase
                 and ensures the founder remains close to the feedback loop as
                 the first users onboard.
-              </p>
-            </div>
-          </details>
-
-          <details>
-            <summary>Why Facebook — Not a Custom Donor Portal</summary>
-            <div className={styles.detailsBody}>
-              <p>
-                Building a full donor-facing portal was out of scope for Phase 1
-                — and intentionally so. The open question at this stage was not
-                "Can we build a donor portal?" but "Do the organizations have a
-                need that's worth solving?" Answering the second question first
-                is sound product thinking.
-              </p>
-              <p>
-                Facebook as a distribution channel for approved donation
-                requests is a pragmatic interim solution: it has an established
-                user base in Malaysia, supports post formats that translate well
-                to donation request listings, and requires zero additional
-                engineering. It also allows the team to observe donor engagement
-                organically before investing in purpose-built discovery
-                features.
               </p>
             </div>
           </details>

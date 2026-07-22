@@ -7,7 +7,9 @@
  */
 
 .page {
-  --case-cream: #f5f0e8;
+  /* Matches the Crafter ambient skin's paper tone (AmbientBackground .crafter
+     gradient centre) so case studies read as part of the Crafter world. */
+  --case-cream: oklch(0.96 0.03 88);
   --case-warm-white: #fdfaf4;
   --case-ink: #1c1a17;
   --case-muted: #6b6560;
@@ -105,7 +107,7 @@
 }
 
 .heroSub {
-  font-size: 19px;
+  font-size: 16px;
   font-weight: 300;
   color: var(--case-muted);
   max-width: 580px;
@@ -276,6 +278,11 @@
   border: 1px solid var(--case-rule);
   border-radius: 12px;
   overflow: hidden;
+}
+
+.screenshotNarrow {
+  width: 50%;
+  margin: 36px auto;
 }
 
 .screenshotItem img {
@@ -459,5 +466,9 @@
   .insightGrid,
   .feedbackPair {
     grid-template-columns: 1fr;
+  }
+
+  .screenshotNarrow {
+    width: 100%;
   }
 }
