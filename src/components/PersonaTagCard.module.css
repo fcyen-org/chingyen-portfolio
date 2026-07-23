@@ -65,6 +65,16 @@
   color: var(--ink-soft);
 }
 
+.statLink {
+  font-size: 11px;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.statLink:hover {
+  text-decoration: underline;
+}
+
 /* Mobile (≤1100px): full-width card. */
 @media (max-width: 1100px) {
   .root {

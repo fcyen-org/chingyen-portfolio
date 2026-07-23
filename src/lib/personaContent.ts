@@ -218,6 +218,9 @@ export type PersonaTag = {
   quote: string;
   /** Mono attribution line. */
   attribution: string;
+  /** Optional pet-project spotlight — name and URL shown in the card header. */
+  projectName?: string;
+  projectUrl?: string;
 };
 
 /**
